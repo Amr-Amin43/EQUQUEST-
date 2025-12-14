@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.required:after {
+  content: ' *';
+  color: red;
+}
+
+@theme {
+  --color-main: #526d82;
+  --color-alt: #dde6ed;
+  --color-pinky-violet: #876a9a;
+  --color-alt-darker: #8c94a3;
+  --color-main-txt: #27374d;
+  --color-alt-txt: #b9896c;
+
+  --color-l1: #dde6ed;
+  --color-l2: #9db2bf;
+  --color-l3: #526d82;
+  --color-l4: #27374d;
+  --color-l5: #876a9a;
+  --color-l6: #ff6636;
+  --color-l7: #8a9aaa;
+  --color-l8: #b9896c;
+
+  --breakpoint-xs: 480px;
+}
+
+@layer {
+  .teacher-navlink {
+    @apply hover:text-alt my-2 flex justify-center gap-4 rounded-full p-2 transition sm:m-0 sm:justify-start sm:rounded-none;
+
+    &.active {
+      @apply bg-pinky-violet text-alt;
+    }
+  }
+  .teacher-nav li .active {
+    @apply bg-pinky-violet text-alt;
+  }
+  .student-header-nav {
+    @apply relative px-5 py-3;
+
+    & .active {
+      @apply after:bg-l6 after:absolute after:top-0 after:left-0 after:h-0.5 after:w-full after:content-[''];
+    }
+  }
+  .student-nav {
+    @apply relative px-2 py-2 text-sm md:px-8 md:py-5 md:text-[16px];
+
+    & .active {
+      @apply after:bg-l6 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:content-[''];
+    }
+  }
+  .student-dashboard-list-item {
+    @apply flex basis-full items-center gap-6 p-6 md:basis-[calc(50%-12px)] xl:basis-[calc(25%-18px)];
+
+    .student-dashboard-list-item-icon {
+      @apply block w-fit bg-white p-5 text-3xl;
+    }
+  }
+  .student-courses-filter-name {
+    @apply mb-2 text-[12px] text-[#6E7485];
+  }
+  .student-wishlist-item {
+    @apply grid grid-cols-12 gap-6 border-b-1 border-[#E9EAF0] py-5;
+  }
+}
+
+.hide-scroll-arrows::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Scrollbar size */
+.hide-scroll-arrows::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Scrollbar track (background) */
+.hide-scroll-arrows::-webkit-scrollbar-track {
+  background: transparent; /* or a light color like #f0f0f0 */
+}
+
+/* Scrollbar thumb (the draggable part) */
+.hide-scroll-arrows::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* semi-transparent dark */
+  border-radius: 4px;
+  border: 2px solid transparent; /* for some padding effect */
+  background-clip: content-box;
+}
+
+/* Optional: Hover effect on thumb */
+.hide-scroll-arrows::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.custom-slider {
+  cursor: pointer;
+  appearance: none;
+}
+
+.custom-slider::-webkit-slider-runnable-track {
+  height: 0.5rem;
+}
+
+.custom-slider::-webkit-slider-thumb {
+  pointer-events: none;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.list-icon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
